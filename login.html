@@ -70,24 +70,15 @@
                     </svg>
                 </div>
 
-                <!-- Login Form -->
+                <!-- Login Section -->
                 <div class="space-y-6">
                     <h1 class="text-4xl font-bold text-center mb-8">Login</h1>
-                    <p class="text-center text-gray-400 mb-6">Login with your account</p>
+                    <p class="text-center text-gray-400 mb-6">Click below to log in</p>
 
-                    <form id="login-form" class="space-y-4">
-                        <div>
-                            <input type="tel" id="login-phone" placeholder="Phone number" class="input-field w-full px-4 py-3 rounded-lg border border-gray-600 focus:outline-none focus:border-purple-500" required>
-                        </div>
-                        <div>
-                            <input type="password" id="login-password" placeholder="Password" class="input-field w-full px-4 py-3 rounded-lg border border-gray-600 focus:outline-none focus:border-purple-500" required>
-                        </div>
-
-                        <!-- Login Button -->
-                        <button type="submit" class="w-full py-3 bg-purple-600 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-[1.02] glow-effect">
-                            <a href="homepage2.html">Log in</a>
-                        </button>
-                    </form>
+                    <!-- Login Button -->
+                    <a href="homepage2.html" class="w-full block py-3 bg-purple-600 rounded-lg text-center font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-[1.02] glow-effect">
+                        Log in
+                    </a>
 
                     <!-- Sign Up Link -->
                     <p class="text-center text-gray-400">
@@ -98,32 +89,5 @@
             </div>
         </div>
     </div>
-
-<!--     <script>
-        // Initialize users array from the sign-up page (from localStorage)
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-
-        // Handle Login Form submission
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const phone = document.getElementById('login-phone').value;
-            const password = document.getElementById('login-password').value;
-
-            // Find the user by matching phone and password
-            const user = users.find(u => u.phone === phone && u.password === password);
-
-            if (user) {
-                 console.log('User found! Redirecting...');
-                 alert('Login Successful!');
-                window.location.href = 'homepage2.html';
-    }       else {
-             console.log('No matching user found.');
-             alert('Invalid phone number or password!');
-}
-
-        });
-    </script> -->
-    
 </body>
 </html>
