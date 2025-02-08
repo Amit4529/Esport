@@ -1,0 +1,186 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Cards</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #020c1b;
+        }
+        .card-container {
+            display: flex;
+            gap: 20px; /* Equal spacing between cards */
+        }
+        .card {
+            width: 220px;
+            height: 300px;
+            background: #07182E;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card h2 {
+            z-index: 1;
+            color: white;
+            font-size: 1.8em;
+            text-transform: uppercase;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 150%;
+            background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+            animation: rotateBG 3s linear infinite;
+        }
+        @keyframes rotateBG {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .card::after {
+            content: '';
+            position: absolute;
+            background: #07182E;
+            inset: 5px;
+            border-radius: 15px;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 183, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <a href="teamregister1.html" style="text-decoration: none; color: whitesmoke;"><div class="card"><h2>PUBG</a></h2></div>
+        <a href="teamregister1.html" style="text-decoration: none; color: whitesmoke;"><div class="card"><h2>Free Fire</a></h2></div>
+        <a href="teamregister1.html" style="text-decoration: none; color: whitesmoke;"><div class="card"><h2>Call of Duty</a></h2></div>
+        <a href="teamregister1.html" style="text-decoration: none; color: whitesmoke;"><div class="card"><h2>GTA V</a></h2></div>
+        <a href="teamregister1.html" style="text-decoration: none; color: whitesmoke;"><div class="card"><h2>Fortnite</a></h2></div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Cards</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #020c1b;
+        }
+        .card-container {
+            display: flex;
+            gap: 20px; /* Equal spacing between cards */
+        }
+        .card {
+            width: 220px;
+            height: 320px;
+            background: #07182E;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card h2 {
+            z-index: 1;
+            color: white;
+            font-size: 1.8em;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 1;
+            border: 3px solid rgba(255, 255, 255, 0.7);
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 150%;
+            background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+            animation: rotateBG 3s linear infinite;
+        }
+        @keyframes rotateBG {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .card::after {
+            content: '';
+            position: absolute;
+            background: #07182E;
+            inset: 5px;
+            border-radius: 15px;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 183, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <a href="teamregister1.html" style="text-decoration: none; color: whitesmoke;">
+            <div class="card">
+                <img src="pubg.jpg" alt="PUBG">
+                <h2>PUBG</h2>
+            </div>
+        </a>
+        <a href="teamregister1.html" style="text-decoration: none; color: whitesmoke;">
+            <div class="card">
+                <img src="ff.jpg" alt="Free Fire">
+                <h2>Free Fire</h2>
+            </div>
+        </a>
+        <a href="teamregister1.html" style="text-decoration: none; color: whitesmoke;">
+            <div class="card">
+                <img src="cod.jpg" alt="Call of Duty">
+                <h2>Call of Duty</h2>
+            </div>
+        </a>
+        <a href="teamregister1.html" style="text-decoration: none; color: whitesmoke;">
+            <div class="card">
+                <img src="gta5.jpg" alt="GTA V">
+                <h2>GTA V</h2>
+            </div>
+        </a>
+        <a href="teamregister1.html" style="text-decoration: none; color: whitesmoke;">
+            <div class="card">
+                <img src="fortnite.jpg" alt="Fortnite">
+                <h2>Fortnite</h2>
+            </div>
+        </a>
+    </div>
+</body>
+</html>

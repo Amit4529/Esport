@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About PlayGroundX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        neon: "#0ff",
+                        cyberpink: "#ff007f",
+                    },
+                    animation: {
+                        fadeIn: "fadeIn 1.5s ease-in-out",
+                        glow: "glow 1.5s infinite alternate",
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            "0%": { opacity: "0", transform: "translateY(20px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        },
+                        glow: {
+                            "0%": { textShadow: "0 0 10px #0ff, 0 0 20px #0ff" },
+                            "100%": { textShadow: "0 0 20px #0ff, 0 0 30px #0ff" }
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="min-h-screen bg-cover bg-center relative flex flex-col items-center justify-center px-4"
+      style="background-image: url('a.png');">
+
+    <!-- Dark Overlay for Better Readability -->
+    <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+    <!-- Content Container -->
+    <div class="relative text-center text-white max-w-5xl">
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-bold text-neon animate-glow">OUR MISSION</h1>
+        
+        <!-- Mission Statement -->
+        <p class="mt-4 text-lg text-gray-300 animate-fadeIn">
+            Empowering gamers to compete, connect, and conquer in the ultimate esports battleground. 
+            Bridging talent and technology to create the most immersive gaming tournament experience. 
+            Building a global gaming community where every player gets a chance to shine.
+        </p>
+
+        <!-- Image Section (Round Images) -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
+            <!-- Placeholder for Images -->
+            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-neon overflow-hidden shadow-lg">
+                <img src="esport1.png" alt="Esports Image 1" class="w-full h-full object-cover">
+            </div>
+            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-cyberpink overflow-hidden shadow-lg">
+                <img src="esport2.png" alt="Esports Image 2" class="w-full h-full object-cover">
+            </div>
+            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-neon overflow-hidden shadow-lg">
+                <img src="esport3.png" alt="Esports Image 3" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

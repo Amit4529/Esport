@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle of Games</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            background: #000;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        .flyer-wrapper {
+            display: flex;
+            gap: 40px;
+        }
+
+        .flyer-container {
+            background: linear-gradient(180deg, rgba(10,10,10,0.9), rgba(30,30,30,0.9));
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+            max-width: 450px;
+            width: 100%;
+            border: 2px solid #00ffff;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .flyer-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(0, 255, 255, 1);
+        }
+
+        .flyer-container h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #ff00ff;
+            font-weight: 600;
+        }
+
+        .flyer-container p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            color: #ddd;
+        }
+
+        .free-entry {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            padding: 12px 25px;
+            margin: 20px 0;
+            border-radius: 30px;
+            font-weight: bold;
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 15px #ff00ff;
+            font-size: 18px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .free-entry:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px #ff00ff;
+        }
+
+        .form-container, .submission-page {
+            display: none;
+            opacity: 0;
+            transform: translateY(50px);
+            background: linear-gradient(180deg, rgba(10,10,10,0.9), rgba(30,30,30,0.9));
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+            max-width: 450px;
+            width: 100%;
+            border: 2px solid #ff00ff;
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+
+        .form-container select, .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            background: rgba(0, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .form-container button {
+            background: #ff00ff;
+            border: none;
+            padding: 12px 20px;
+            color: white;
+            font-size: 18px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 15px #ff00ff;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .form-container button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px #ff00ff;
+        }
+
+        .countdown {
+            font-size: 24px;
+            color: #ff00ff;
+            font-weight: bold;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+    </style>
+    <script>
+        function showForm() {
+            document.querySelector('.flyer-wrapper').style.transform = 'translateY(-100vh)';
+            document.querySelector('.flyer-wrapper').style.opacity = '0';
+            setTimeout(() => {
+                document.querySelector('.flyer-wrapper').style.display = 'none';
+                let formContainer = document.querySelector('.form-container');
+                formContainer.style.display = 'block';
+                setTimeout(() => {
+                    formContainer.style.opacity = '1';
+                    formContainer.style.transform = 'translateY(0)';
+                }, 100);
+            }, 800);
+        }
+
+        function generateInputs() {
+            let size = document.getElementById('team-size').value;
+            let membersDiv = document.getElementById('team-members');
+            membersDiv.innerHTML = '';
+            for (let i = 1; i <= size; i++) {
+                membersDiv.innerHTML += `<input type='text' placeholder='Member ${i} Name' required> <input type='text' placeholder='Member ${i} Contact' required>`;
+            }
+        }
+
+        function submitForm() {
+            document.querySelector('.form-container').style.opacity = '0';
+            setTimeout(() => {
+                document.querySelector('.form-container').style.display = 'none';
+                let submissionPage = document.querySelector('.submission-page');
+                submissionPage.style.display = 'block';
+                setTimeout(() => {
+                    submissionPage.style.opacity = '1';
+                    submissionPage.style.transform = 'translateY(0)';
+                    startCountdown();
+                }, 100);
+            }, 800);
+        }
+
+        function startCountdown() {
+            let eventDate = new Date("February 15, 2025 00:00:00").getTime();
+            setInterval(function () {
+                let now = new Date().getTime();
+                let distance = eventDate - now;
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+
+    <div class="flyer-wrapper">
+        <div class="flyer-container">
+            <h1>BATTLE OF GAMES</h1>
+            <p>Join the ultimate esports showdown and prove your skills! Compete against top players, win prizes, and showcase your talent!</p>
+            <p>📅 Date: August 8, 2026</p>
+            <p>📍 Location: Battleground</p>
+            <div class="free-entry" onclick="showForm()">FREE ENTRY!</div>
+        </div>
+        <div class="flyer-container">
+            <h1>RAPID STRIKE TOURNAMENT</h1>
+            <p>Fast-paced gaming, strategic battles, and an intense leaderboard! Form your team and fight for the top spot!</p>
+            <p>📅 Date: August 15, 2026</p>
+            <p>📍 Location: Battleground</p>
+            <div class="free-entry" onclick="showForm()">FREE ENTRY!</div>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Register Your Team</h2>
+        <select id="team-size" onchange="generateInputs()">
+            <option  value="">-- Select --</option>
+            <option style="background-color: black;" value="1">1</option>
+            <option style="background-color: black;" value="2">2</option>
+        </select>
+        <div id="team-members"></div>
+        <button onclick="submitForm()">Submit</button>
+    </div>
+
+    <div class="submission-page">
+        <h2>Registration Successful!</h2>
+        <p>Time Left for Event:</p>
+        <div class="countdown" id="countdown"></div>
+        <button style="
+  font-size: 1.4em;
+  padding: 0.6em 0.8em;
+  border-radius: 0.5em;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 3px #000000b4;
+  position: relative;
+  padding: 10px;
+  background: linear-gradient(90deg, #03a9f4, #f441a5);
+  border-radius: 0.9em;
+  transition: all 0.4s ease;
+">
+<a href="homepage2.html" style="text-decoration: none;">
+  Home</a>
+</button>
+
+    </div>
+
+</body>
+</html>

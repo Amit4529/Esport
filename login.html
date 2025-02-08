@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.5)); }
+            50% { filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.8)); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-image {
+            animation: float 6s ease-in-out infinite;
+            max-height: 80%;
+            padding: 20px;
+        }
+
+        .glow-effect {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .input-field {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .social-btn {
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(168, 85, 247, 0.3);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#0a0a1a] text-white">
+    <div class="flex min-h-screen">
+        <!-- Left Section with Image -->
+        <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+            <img src="image.png" alt="Gaming Hero" class="hero-image object-contain mx-auto">
+            <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#0a0a1a] opacity-50"></div>
+            <div class="absolute bottom-10 left-10 right-10 text-white">
+                <h2 class="text-3xl font-bold mb-2 glow-effect">Dive into the Ultimate Gaming Experience</h2>
+                <p class="text-gray-300">Join us and Master The Art of Outsmarting Through Gaming</p>
+            </div>
+        </div>
+
+        <!-- Right Section with Form -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
+            <div class="w-full max-w-md space-y-8">
+                <!-- Logo -->
+                <div class="flex justify-center mb-8">
+                    <svg class="w-12 h-12 glow-effect" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+                <!-- Login Form -->
+                <div class="space-y-6">
+                    <h1 class="text-4xl font-bold text-center mb-8">Login</h1>
+                    <p class="text-center text-gray-400 mb-6">Login with your account</p>
+
+                    <form id="login-form" class="space-y-4">
+                        <div>
+                            <input type="tel" id="login-phone" placeholder="Phone number" class="input-field w-full px-4 py-3 rounded-lg border border-gray-600 focus:outline-none focus:border-purple-500" required>
+                        </div>
+                        <div>
+                            <input type="password" id="login-password" placeholder="Password" class="input-field w-full px-4 py-3 rounded-lg border border-gray-600 focus:outline-none focus:border-purple-500" required>
+                        </div>
+
+                        <!-- Login Button -->
+                        <button type="submit" class="w-full py-3 bg-purple-600 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-[1.02] glow-effect">
+                            Log in
+                        </button>
+                    </form>
+
+                    <!-- Sign Up Link -->
+                    <p class="text-center text-gray-400">
+                        Not a member yet? 
+                        <a href="signup.html" class="text-purple-500 hover:text-purple-400 transition-colors duration-300">Sign Up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize users array from the sign-up page (from localStorage)
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Handle Login Form submission
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const phone = document.getElementById('login-phone').value;
+            const password = document.getElementById('login-password').value;
+
+            // Find the user by matching phone and password
+            const user = users.find(u => u.phone === phone && u.password === password);
+
+            if (user) {
+                 console.log('User found! Redirecting...');
+                 alert('Login Successful!');
+                window.location.href = 'homepage2.html';
+    }       else {
+             console.log('No matching user found.');
+             alert('Invalid phone number or password!');
+}
+
+        });
+    </script>
+    
+</body>
+</html>
